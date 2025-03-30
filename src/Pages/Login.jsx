@@ -48,7 +48,7 @@ const InputContainer = styled.div`
 function Login() {
     const { register, handleSubmit, formState : {errors} } = useForm({
         defaultValues: {
-            email: "eve.holt@reqres.in",
+            email: "eve.holt@reqres.in", 
             password: "cityslicka",      
         }
     });
