@@ -15,11 +15,11 @@ function App() {
         <Route path="/login" element={<Login />} />
 
        
-        <Route element={<ProtectedRoutes />}>
+        
           <Route element={<AppLayout />}>
             <Route path="/userslist" element={<UsersList />} />
           </Route>
-        </Route>
+        
       </Routes>
     </>
   );
