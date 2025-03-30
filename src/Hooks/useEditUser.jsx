@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { UpdateUser } from "../Services/UserApi";
+import { toast } from "react-hot-toast";
 
 export function useEditUser(currentPage, setEditingUser) {
     const queryClient = useQueryClient();
@@ -18,11 +19,21 @@ export function useEditUser(currentPage, setEditingUser) {
                 return newData;
             });
 
-            
+           
+            toast.success("User updated successfully!", {
+                duration: 3000,
+            });
+
+           
             setEditingUser(null);
         },
         onError: (error) => {
             console.error("Error updating user:", error);
+
+            
+            toast.error("Failed to update user. Please try again!", {
+                duration: 5000,
+            });
         },
     });
 
