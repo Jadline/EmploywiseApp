@@ -6,22 +6,20 @@ import ProtectedRoutes from "./Components/ProtectedRoutes";
 
 function App() {
   return (
-    <>
-      <Routes>
-       
-        <Route path="/" element={<Navigate replace to="/login" />} />
+    <Routes>
+      {/* Redirect root path to login */}
+      <Route path="/" element={<Navigate replace to="/login" />} />
 
-       
-        <Route path="/login" element={<Login />} />
+      {/* Public Route - Login Page */}
+      <Route path="/login" element={<Login />} />
 
-       
-        
-          <Route element={<AppLayout />}>
-            <Route path="/userslist" element={<UsersList />} />
-          </Route>
-        
-      </Routes>
-    </>
+      {/* Protected Routes - Only accessible if logged in */}
+      <Route element={<ProtectedRoutes />}>
+        <Route element={<AppLayout />}>
+          <Route path="/userslist" element={<UsersList />} />
+        </Route>
+      </Route>
+    </Routes>
   );
 }
 
