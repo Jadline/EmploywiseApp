@@ -7,13 +7,13 @@ import ProtectedRoutes from "./Components/ProtectedRoutes";
 function App() {
   return (
     <Routes>
-      {/* Redirect root path to UsersList */}
+     
       <Route path="/" element={<Navigate replace to="/login" />} />
 
-      {/* Public Route - Login Page */}
+      
       <Route path="/login" element={<Login />} />
 
-      {/* Protected Routes - Only accessible if logged in */}
+   
       <Route element={<ProtectedRoutes />}>
         <Route element={<AppLayout />}>
           <Route path="/userslist" element={<UsersList />} />
